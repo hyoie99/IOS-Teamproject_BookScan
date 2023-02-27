@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		780BD049149201A68F3EBD2A /* Pods_Project_graduate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */; };
+		C0A842FD29A9D11C0062ADB2 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C0A842FC29A9D11C0062ADB2 /* KakaoSDKAuth */; };
+		C0A842FF29A9D11C0062ADB2 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = C0A842FE29A9D11C0062ADB2 /* KakaoSDKCommon */; };
+		C0A8430129A9D11C0062ADB2 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = C0A8430029A9D11C0062ADB2 /* KakaoSDKUser */; };
+		C0A8430329A9D3040062ADB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A8430229A9D3040062ADB2 /* LoginViewController.swift */; };
+		C0A8430629A9D80C0062ADB2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C0A8430529A9D80C0062ADB2 /* SDWebImage */; };
+		C0A8430829A9D80C0062ADB2 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C0A8430729A9D80C0062ADB2 /* SDWebImageMapKit */; };
+		C0A8430B29A9D8820062ADB2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C0A8430A29A9D8820062ADB2 /* SwiftyJSON */; };
 		C8390B272972C07100075F9F /* d.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B222972C07100075F9F /* d.jpeg */; };
 		C8390B282972C07100075F9F /* b.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B232972C07100075F9F /* b.jpeg */; };
 		C8390B292972C07100075F9F /* e.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B242972C07100075F9F /* e.jpeg */; };
@@ -30,6 +37,7 @@
 		206C9CCF111560FA9911444E /* Pods-Project_graduate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_graduate.debug.xcconfig"; path = "Target Support Files/Pods-Project_graduate/Pods-Project_graduate.debug.xcconfig"; sourceTree = "<group>"; };
 		2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_graduate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFCE50FA0881A537C978F07 /* Pods-Project_graduate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_graduate.release.xcconfig"; path = "Target Support Files/Pods-Project_graduate/Pods-Project_graduate.release.xcconfig"; sourceTree = "<group>"; };
+		C0A8430229A9D3040062ADB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C8390B222972C07100075F9F /* d.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpeg; sourceTree = "<group>"; };
 		C8390B232972C07100075F9F /* b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b.jpeg; sourceTree = "<group>"; };
 		C8390B242972C07100075F9F /* e.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = e.jpeg; sourceTree = "<group>"; };
@@ -54,8 +62,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A8430629A9D80C0062ADB2 /* SDWebImage in Frameworks */,
+				C0A842FF29A9D11C0062ADB2 /* KakaoSDKCommon in Frameworks */,
+				C0A8430B29A9D8820062ADB2 /* SwiftyJSON in Frameworks */,
 				C839A5832965B19B00F206FB /* CropViewController in Frameworks */,
 				780BD049149201A68F3EBD2A /* Pods_Project_graduate.framework in Frameworks */,
+				C0A8430129A9D11C0062ADB2 /* KakaoSDKUser in Frameworks */,
+				C0A8430829A9D80C0062ADB2 /* SDWebImageMapKit in Frameworks */,
+				C0A842FD29A9D11C0062ADB2 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +134,7 @@
 				C839A5862965B35200F206FB /* MainPageViewController.swift */,
 				C839A58B2965B7E400F206FB /* CamViewController.swift */,
 				C839A58F2965B88300F206FB /* ScanResultViewController.swift */,
+				C0A8430229A9D3040062ADB2 /* LoginViewController.swift */,
 				C839A5732965B0E300F206FB /* Main.storyboard */,
 				C839A5762965B0E500F206FB /* Assets.xcassets */,
 				C839A5782965B0E500F206FB /* LaunchScreen.storyboard */,
@@ -156,6 +171,12 @@
 			name = Project_graduate;
 			packageProductDependencies = (
 				C839A5822965B19B00F206FB /* CropViewController */,
+				C0A842FC29A9D11C0062ADB2 /* KakaoSDKAuth */,
+				C0A842FE29A9D11C0062ADB2 /* KakaoSDKCommon */,
+				C0A8430029A9D11C0062ADB2 /* KakaoSDKUser */,
+				C0A8430529A9D80C0062ADB2 /* SDWebImage */,
+				C0A8430729A9D80C0062ADB2 /* SDWebImageMapKit */,
+				C0A8430A29A9D8820062ADB2 /* SwiftyJSON */,
 			);
 			productName = Project_graduate;
 			productReference = C839A56A2965B0E300F206FB /* Project_graduate.app */;
@@ -187,6 +208,9 @@
 			mainGroup = C839A5612965B0E300F206FB;
 			packageReferences = (
 				C839A5812965B19B00F206FB /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				C0A842FB29A9D11C0062ADB2 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				C0A8430429A9D80C0062ADB2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C0A8430929A9D8820062ADB2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = C839A56B2965B0E300F206FB /* Products */;
 			projectDirPath = "";
@@ -263,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A8430329A9D3040062ADB2 /* LoginViewController.swift in Sources */,
 				C839A58C2965B7E400F206FB /* CamViewController.swift in Sources */,
 				C839A5872965B35200F206FB /* MainPageViewController.swift in Sources */,
 				C839A56E2965B0E300F206FB /* AppDelegate.swift in Sources */,
@@ -419,6 +444,7 @@
 				DEVELOPMENT_TEAM = 4Q36CVK97Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Project_graduate/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"앱에서 카메라를 사용하기 위해서 카메라 권한을 요청합니다.\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -448,6 +474,7 @@
 				DEVELOPMENT_TEAM = 4Q36CVK97Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Project_graduate/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"앱에서 카메라를 사용하기 위해서 카메라 권한을 요청합니다.\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -490,6 +517,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C0A842FB29A9D11C0062ADB2 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C0A8430429A9D80C0062ADB2 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		C0A8430929A9D8820062ADB2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		C839A5812965B19B00F206FB /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
@@ -501,6 +552,36 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C0A842FC29A9D11C0062ADB2 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0A842FB29A9D11C0062ADB2 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		C0A842FE29A9D11C0062ADB2 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0A842FB29A9D11C0062ADB2 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		C0A8430029A9D11C0062ADB2 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0A842FB29A9D11C0062ADB2 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+		C0A8430529A9D80C0062ADB2 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0A8430429A9D80C0062ADB2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C0A8430729A9D80C0062ADB2 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0A8430429A9D80C0062ADB2 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		C0A8430A29A9D8820062ADB2 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0A8430929A9D8820062ADB2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		C839A5822965B19B00F206FB /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C839A5812965B19B00F206FB /* XCRemoteSwiftPackageReference "TOCropViewController" */;

@@ -118,12 +118,53 @@
             </objects>
             <point key="canvasLocation" x="765.64885496183206" y="17.605633802816904"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Dou-zK-Qc7">
+            <objects>
+                <viewController id="wZb-Yq-OCb" customClass="LoginViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mQU-lT-iuQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Scan Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWH-lJ-OCB">
+                                <rect key="frame" x="75.666666666666671" y="309" width="241.66666666666663" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakaoLogin" translatesAutoresizingMaskIntoConstraints="NO" id="Rch-J3-InK">
+                                <rect key="frame" x="112" y="386" width="169" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="nli-Te-6AE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Pf7-1w-cS5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bWH-lJ-OCB" firstAttribute="centerX" secondItem="mQU-lT-iuQ" secondAttribute="centerX" id="AWz-Zl-KaO"/>
+                            <constraint firstItem="Rch-J3-InK" firstAttribute="leading" secondItem="Pf7-1w-cS5" secondAttribute="leading" constant="112" id="IbB-PU-ckB"/>
+                            <constraint firstItem="Rch-J3-InK" firstAttribute="centerX" secondItem="mQU-lT-iuQ" secondAttribute="centerX" id="Ryf-KC-Slx"/>
+                            <constraint firstItem="bWH-lJ-OCB" firstAttribute="leading" secondItem="Pf7-1w-cS5" secondAttribute="leading" constant="75.666666666666686" id="g0O-An-bru"/>
+                            <constraint firstItem="bWH-lJ-OCB" firstAttribute="top" secondItem="Pf7-1w-cS5" secondAttribute="top" constant="206" id="tya-qH-wBF"/>
+                            <constraint firstItem="Rch-J3-InK" firstAttribute="top" secondItem="bWH-lJ-OCB" secondAttribute="bottom" constant="41" id="z5L-Bl-z5U"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bTo-RM-x8G"/>
+                    <connections>
+                        <outlet property="kakaoBtn" destination="Rch-J3-InK" id="c8b-Mb-RQR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKZ-sq-MkJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-295.41984732824426" y="17.605633802816904"/>
+        </scene>
         <!--Scan Result View Controller-->
         <scene sceneID="Cw7-fP-tmW">
             <objects>
                 <viewController storyboardIdentifier="ScanResultViewController" id="Q1Z-L6-hIr" customClass="ScanResultViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QIh-Ig-Uo8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="검색한 책 제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QY-Hl-hBB">
@@ -244,7 +285,7 @@
             <objects>
                 <viewController storyboardIdentifier="CamViewController" id="rcJ-nk-cOk" customClass="CamViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="41c-Io-cp6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="zmD-PM-xZL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -275,17 +316,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JkN-vM-hTn"/>
+                        <segue destination="wZb-Yq-OCb" kind="relationship" relationship="rootViewController" id="1gI-vx-lMd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anP-11-cfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161.06870229007632" y="17.605633802816904"/>
+            <point key="canvasLocation" x="-1175" y="18"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera1.png" width="48" height="48"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="123"/>
+        <image name="kakaoLogin" width="61" height="15"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

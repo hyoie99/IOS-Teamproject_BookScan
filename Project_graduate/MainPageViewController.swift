@@ -36,6 +36,12 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.dataSource = self
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
+    
     @objc func viewTapped(_ sender : UITapGestureRecognizer) {
         print("\(sender.view!.tag) 클릭됨")
         //책 정보 페이지로 넘어가는 함수 만들기.
