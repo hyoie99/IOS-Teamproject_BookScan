@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qZX-Zo-WKA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qZX-Zo-WKA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,45 +19,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="검색 목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUk-t8-IiA">
-                                <rect key="frame" x="138" y="78" width="116" height="47"/>
-                                <color key="backgroundColor" red="0.86078917980000003" green="0.60450579130000004" blue="0.55836906360000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" name="AccentColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.86078917980000003" green="0.60450579130000004" blue="0.55836906360000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSs-TR-rlR">
+                                <rect key="frame" x="146" y="653" width="101" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0gG-YK-tqQ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.29803922770000002" green="0.65882354970000001" blue="0.69411766529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Camera1.png" imagePadding="0.0"/>
+                                <connections>
+                                    <action selector="onBtnCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EbS-Tz-HJ9"/>
+                                    <segue destination="rcJ-nk-cOk" kind="show" id="Gx0-S1-UVM"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0LL-rL-fJP">
-                                <rect key="frame" x="0.0" y="148" width="393" height="414"/>
+                                <rect key="frame" x="0.0" y="132" width="393" height="482"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y48-Rj-QGd">
-                                    <size key="itemSize" width="205" height="357"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y48-Rj-QGd">
+                                    <size key="itemSize" width="170" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCoverCollectionViewCell" id="CTS-02-nAO" customClass="BookCoverCollectionViewCell" customModule="Project_graduate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28.666666666666668" width="205" height="357"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BM3-YB-QCq">
-                                            <rect key="frame" x="0.0" y="0.0" width="205" height="357"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNF-pE-t72">
-                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="344"/>
+                                                    <rect key="frame" x="4" y="0.0" width="170" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -69,7 +64,7 @@
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="205" height="357"/>
+                                        <size key="customSize" width="170" height="200"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -84,34 +79,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSs-TR-rlR">
-                                <rect key="frame" x="146" y="653" width="101" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0gG-YK-tqQ"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="Camera1.png"/>
-                                <connections>
-                                    <action selector="onBtnCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EbS-Tz-HJ9"/>
-                                    <segue destination="rcJ-nk-cOk" kind="show" id="Gx0-S1-UVM"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bI-GT-b2l">
+                                <rect key="frame" x="16" y="77" width="116" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.65882354970000001" blue="0.69411766529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mSs-TR-rlR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="4xX-eb-XPe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xUk-t8-IiA" secondAttribute="trailing" constant="139" id="CuX-QT-WzR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mSs-TR-rlR" secondAttribute="trailing" constant="146" id="G6X-fT-Ye5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mSs-TR-rlR" secondAttribute="bottom" constant="115" id="J3H-M1-h2n"/>
-                            <constraint firstItem="xUk-t8-IiA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138" id="UWj-5Y-0ip"/>
-                            <constraint firstItem="xUk-t8-IiA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="78" id="UqR-L4-GS4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ie5-G5-9hM"/>
                     <connections>
                         <outlet property="collectionView" destination="0LL-rL-fJP" id="8Tv-3a-yga"/>
-                        <outlet property="searchList_label" destination="xUk-t8-IiA" id="F1R-Na-FPp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -172,11 +158,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="검색한 책 제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWd-8T-gEy">
                                 <rect key="frame" x="58" y="109" width="163" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.86078917980000003" green="0.60450579130000004" blue="0.55836906360000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.65882354970000001" blue="0.69411766529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="highlightedColor" red="0.86078917980000003" green="0.60450579130000004" blue="0.55836906360000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="highlightedColor" red="0.29803922770000002" green="0.65882354970000001" blue="0.69411766529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="2"/>
@@ -221,28 +207,65 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WZ0-cF-4d8">
+                                <rect key="frame" x="0.0" y="260" width="393" height="436"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="tintColor"/>
+                                <color key="color" name="AccentColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eug-K3-e9j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0Ug-GU-djP"/>
+                    <navigationItem key="navigationItem" id="0Ug-GU-djP">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="ZDk-gs-Wqp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Koh-AW-OCA">
+                                <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.left" catalog="system"/>
+                                <connections>
+                                    <action selector="onbtnHome:" destination="2S4-Tb-Qwv" eventType="touchUpInside" id="Jhk-ar-HtU"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="BZw-rh-Kfq">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pxF-1R-Gj9">
+                                <rect key="frame" x="305" y="0.0" width="72" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system"/>
+                                <connections>
+                                    <action selector="onBtnCam:" destination="2S4-Tb-Qwv" eventType="touchUpInside" id="uZv-LT-5Ux"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="buttonBack" destination="Koh-AW-OCA" id="U2V-kQ-ukn"/>
+                        <outlet property="buttonCam" destination="pxF-1R-Gj9" id="GgR-1U-X5Y"/>
+                        <outlet property="indicator" destination="WZ0-cF-4d8" id="Um9-Af-S8p"/>
                         <outlet property="tableView" destination="bs3-dR-HJP" id="UG5-Gu-hmp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fk7-2D-HMs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="18"/>
+            <point key="canvasLocation" x="2359.5419847328244" y="17.605633802816904"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera1.png" width="48" height="48"/>
+        <image name="arrowshape.left" catalog="system" width="128" height="104"/>
+        <image name="camera" catalog="system" width="128" height="93"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

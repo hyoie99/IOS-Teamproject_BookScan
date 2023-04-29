@@ -10,7 +10,6 @@ import SDWebImage
 
 class MainPageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var searchList_label: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -19,7 +18,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         //이거 해줘야 label 둥글게 적용 가능
-        searchList_label.clipsToBounds = true
+//        searchList_label.clipsToBounds = true
 //        searchList_label.layer.cornerRadius = 10
 //        searchList_label.layer.borderWidth = 2
         
@@ -54,9 +53,14 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.isNavigationBarHidden = true
     }
     //-MARK
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+            return 1
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+//        return 3
+    }
+      
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "BookCoverCollectionViewCell", for: indexPath) as! BookCoverCollectionViewCell
@@ -64,10 +68,19 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.BookCoverImage.image = UIImage(named: images[indexPath.row])
 //        let url : URL = URL(string: "https://")!
 //        cell.BookCoverImage.sd_setImage(with: url)
+        //책 url 따와서 해보기
         cell.BookCoverImage.layer.cornerRadius = 10
+        cell.BookCoverImage.layer.cornerCurve = .continuous
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: CGFloat(197), height: CGFloat(344))
+        return CGSize(width: 170, height: 200)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 10 // 세로 간격
+        }
+        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 20 // 가로 간격
     }
 }

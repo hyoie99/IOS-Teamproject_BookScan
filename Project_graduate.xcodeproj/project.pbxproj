@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		780BD049149201A68F3EBD2A /* Pods_Project_graduate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */; };
+		C8334A4C29FA83B700F8C4C1 /* project_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C8334A4B29FA83B700F8C4C1 /* project_logo.png */; };
 		C8390B272972C07100075F9F /* d.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B222972C07100075F9F /* d.jpeg */; };
 		C8390B282972C07100075F9F /* b.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B232972C07100075F9F /* b.jpeg */; };
 		C8390B292972C07100075F9F /* e.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B242972C07100075F9F /* e.jpeg */; };
@@ -32,6 +33,7 @@
 		206C9CCF111560FA9911444E /* Pods-Project_graduate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_graduate.debug.xcconfig"; path = "Target Support Files/Pods-Project_graduate/Pods-Project_graduate.debug.xcconfig"; sourceTree = "<group>"; };
 		2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_graduate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFCE50FA0881A537C978F07 /* Pods-Project_graduate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_graduate.release.xcconfig"; path = "Target Support Files/Pods-Project_graduate/Pods-Project_graduate.release.xcconfig"; sourceTree = "<group>"; };
+		C8334A4B29FA83B700F8C4C1 /* project_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project_logo.png; sourceTree = "<group>"; };
 		C8390B222972C07100075F9F /* d.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpeg; sourceTree = "<group>"; };
 		C8390B232972C07100075F9F /* b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b.jpeg; sourceTree = "<group>"; };
 		C8390B242972C07100075F9F /* e.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = e.jpeg; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				C8390B262972C07100075F9F /* c.jpeg */,
 				C8390B222972C07100075F9F /* d.jpeg */,
 				C8390B242972C07100075F9F /* e.jpeg */,
+				C8334A4B29FA83B700F8C4C1 /* project_logo.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				C8390B2A2972C07100075F9F /* a.jpeg in Resources */,
 				C839A57A2965B0E500F206FB /* LaunchScreen.storyboard in Resources */,
 				C8390B292972C07100075F9F /* e.jpeg in Resources */,
+				C8334A4C29FA83B700F8C4C1 /* project_logo.png in Resources */,
 				C8390B2B2972C07100075F9F /* c.jpeg in Resources */,
 				C839A5772965B0E500F206FB /* Assets.xcassets in Resources */,
 				C839A5752965B0E300F206FB /* Main.storyboard in Resources */,

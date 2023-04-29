@@ -57,20 +57,25 @@ class CamViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         imageVIEW.image = image
         view.addSubview(imageVIEW)
         //image 파일 업로드하기
-//        uploadImage(image: image)
-        
+        uploadImage(image: image)
         
         guard let newVC = self.storyboard?.instantiateViewController(withIdentifier:"TitleListViewController") as? TitleListViewController else {
             return
         }
-        
+        //네비게이션 뷰 스택에서 크롭 뷰 팝하는 코드
+        if let navigationController = navigationController {
+            var viewControllers = navigationController.viewControllers
+            if let cropViewControllerIndex = viewControllers.firstIndex(where: {$0 is CropViewController}){
+                viewControllers.remove(at: cropViewControllerIndex)
+                navigationController.setViewControllers(viewControllers, animated: false)
+            }
+        }
         self.navigationController?.pushViewController(newVC, animated: true)
         self.navigationController?.isNavigationBarHidden = true
     }
     // upload 함수, or af.request(url, method:.post), param : -> image
     func uploadImage(image: UIImage) {
-        let url : String = "_"
-        
+        let url : String = "http://3.39.106.142:8080"
         
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(image.jpegData(compressionQuality: 1.0 )!, withName: "upload_data", fileName: "file.jpeg", mimeType: "image/jpg")
