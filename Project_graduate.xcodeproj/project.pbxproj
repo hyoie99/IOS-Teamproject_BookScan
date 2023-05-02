@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		780BD049149201A68F3EBD2A /* Pods_Project_graduate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */; };
 		C8334A4C29FA83B700F8C4C1 /* project_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C8334A4B29FA83B700F8C4C1 /* project_logo.png */; };
+		C83891A729FE40EB00F32B1C /* BookTitleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83891A629FE40EB00F32B1C /* BookTitleResponse.swift */; };
 		C8390B272972C07100075F9F /* d.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B222972C07100075F9F /* d.jpeg */; };
 		C8390B282972C07100075F9F /* b.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B232972C07100075F9F /* b.jpeg */; };
 		C8390B292972C07100075F9F /* e.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B242972C07100075F9F /* e.jpeg */; };
@@ -25,6 +26,7 @@
 		C839A5892965B4F500F206FB /* Camera1.png in Resources */ = {isa = PBXBuildFile; fileRef = C839A5882965B4F500F206FB /* Camera1.png */; };
 		C839A58C2965B7E400F206FB /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C839A58B2965B7E400F206FB /* CamViewController.swift */; };
 		C839A5902965B88300F206FB /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C839A58F2965B88300F206FB /* ScanResultViewController.swift */; };
+		C85C37D12A014502002DB4BA /* ImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85C37D02A014502002DB4BA /* ImageDataManager.swift */; };
 		C8C799E929E417250098CB9A /* TitleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C799E829E417250098CB9A /* TitleListViewController.swift */; };
 		C8C799EB29E417590098CB9A /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C799EA29E417590098CB9A /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,7 @@
 		2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_graduate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFCE50FA0881A537C978F07 /* Pods-Project_graduate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_graduate.release.xcconfig"; path = "Target Support Files/Pods-Project_graduate/Pods-Project_graduate.release.xcconfig"; sourceTree = "<group>"; };
 		C8334A4B29FA83B700F8C4C1 /* project_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project_logo.png; sourceTree = "<group>"; };
+		C83891A629FE40EB00F32B1C /* BookTitleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTitleResponse.swift; sourceTree = "<group>"; };
 		C8390B222972C07100075F9F /* d.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpeg; sourceTree = "<group>"; };
 		C8390B232972C07100075F9F /* b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b.jpeg; sourceTree = "<group>"; };
 		C8390B242972C07100075F9F /* e.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = e.jpeg; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		C839A5882965B4F500F206FB /* Camera1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera1.png; sourceTree = "<group>"; };
 		C839A58B2965B7E400F206FB /* CamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamViewController.swift; sourceTree = "<group>"; };
 		C839A58F2965B88300F206FB /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
+		C85C37D02A014502002DB4BA /* ImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataManager.swift; sourceTree = "<group>"; };
 		C8C799E829E417250098CB9A /* TitleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleListViewController.swift; sourceTree = "<group>"; };
 		C8C799EA29E417590098CB9A /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +129,8 @@
 				C839A56F2965B0E300F206FB /* SceneDelegate.swift */,
 				C839A5842965B33500F206FB /* BookCoverCollectionViewCell.swift */,
 				C839A5862965B35200F206FB /* MainPageViewController.swift */,
+				C85C37D02A014502002DB4BA /* ImageDataManager.swift */,
+				C83891A629FE40EB00F32B1C /* BookTitleResponse.swift */,
 				C839A58B2965B7E400F206FB /* CamViewController.swift */,
 				C839A58F2965B88300F206FB /* ScanResultViewController.swift */,
 				C8C799E829E417250098CB9A /* TitleListViewController.swift */,
@@ -274,12 +280,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C839A58C2965B7E400F206FB /* CamViewController.swift in Sources */,
+				C85C37D12A014502002DB4BA /* ImageDataManager.swift in Sources */,
 				C8C799EB29E417590098CB9A /* MyTableViewCell.swift in Sources */,
 				C839A5872965B35200F206FB /* MainPageViewController.swift in Sources */,
 				C8C799E929E417250098CB9A /* TitleListViewController.swift in Sources */,
 				C839A56E2965B0E300F206FB /* AppDelegate.swift in Sources */,
 				C839A5902965B88300F206FB /* ScanResultViewController.swift in Sources */,
 				C839A5852965B33500F206FB /* BookCoverCollectionViewCell.swift in Sources */,
+				C83891A729FE40EB00F32B1C /* BookTitleResponse.swift in Sources */,
 				C839A5702965B0E300F206FB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

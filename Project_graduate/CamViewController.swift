@@ -75,10 +75,10 @@ class CamViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     }
     // upload 함수, or af.request(url, method:.post), param : -> image
     func uploadImage(image: UIImage) {
-        let url : String = "http://3.39.106.142:8080"
+        let url : String = "http://3.39.106.142:8000/api/"
         
         AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(image.jpegData(compressionQuality: 1.0 )!, withName: "upload_data", fileName: "file.jpeg", mimeType: "image/jpg")
+            multipartFormData.append(image.jpegData(compressionQuality: 1.0 )!, withName: "image", fileName: "photo.jpeg", mimeType: "image/jpg")
         }, to: url, method: .post, headers: ["Content-Type" : "multipart/form-data"])
         .response { (response) in
             if response.error != nil {
@@ -86,9 +86,9 @@ class CamViewController: UIViewController, UIImagePickerControllerDelegate & UIN
                 print(AFError.self)
             } else {
                 //파일 업로드 성공
-                print("success")
+                print("File Upload success")
             }
-        }// withName -> http 헤더이름 쓰기? key 값-> 으로 보내는 이름??
+        }//key image , value file.jpeg
     }
    
     @IBAction func onBtn(_ sender: UIBarButtonItem) {

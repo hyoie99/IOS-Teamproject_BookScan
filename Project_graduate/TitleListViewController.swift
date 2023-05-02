@@ -88,18 +88,7 @@ class TitleListViewController: UIViewController, UITableViewDataSource, UITableV
         }
         downloadTitle()
         
-//        downloadTitle()
-//        print(bookTitles)
-//        fetchStringArray { (fetchedArray) in
-//            guard let fetchedArray = fetchedArray else {
-//                print("문자열 배열을 가져오지 못했습니다.")
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                self.stringArray = fetchedArray
-//                self.tableView.reloadData()
-//            }
-//        }
+//     
     }
     
     //http://3.39.106.142:8080/api/swagger-ui/index.html
