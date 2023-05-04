@@ -38,14 +38,14 @@ class TitleListViewController: UIViewController, UITableViewDataSource, UITableV
         cell.sendTitleButton.layer.borderWidth = 2
         cell.sendTitleButton.layer.borderColor = UIColor.black.cgColor
         cell.sendTitleButton.frame = CGRect(x: 0, y: 0, width: 298, height: 46)
-        cell.indicatorActive = {
-            self.indicator.isHidden = false
-            self.indicator.startAnimating()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-                self.indicator.isHidden = true
-                self.indicator.stopAnimating()
-            }
-        }
+//        cell.indicatorActive = {
+//            self.indicator.isHidden = false
+//            self.indicator.startAnimating()
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+//                self.indicator.isHidden = true
+//                self.indicator.stopAnimating()
+//            }
+//        }
         return cell
     }
     

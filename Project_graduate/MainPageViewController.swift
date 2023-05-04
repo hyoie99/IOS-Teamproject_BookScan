@@ -13,6 +13,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     let images = ["a.jpeg","b.jpeg","c.jpeg","d.jpeg","e.jpeg"]
     var imageURLs : [String] = []
@@ -41,7 +42,12 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
             self?.imageURLs.append(imageUrl)
             self?.collectionView.reloadData()
         }
-
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.indicator.isHidden = true
+            self.indicator.stopAnimating()
+        }
     }
     
     @objc func viewTapped(_ sender : UITapGestureRecognizer) {
