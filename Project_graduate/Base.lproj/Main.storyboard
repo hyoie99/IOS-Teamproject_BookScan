@@ -217,7 +217,7 @@
                                 <rect key="frame" x="0.0" y="260" width="393" height="436"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="tintColor"/>
-                                <color key="color" name="AccentColor"/>
+                                <color key="color" red="0.29803922770000002" green="0.65882354970000001" blue="0.69411766529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eug-K3-e9j"/>
