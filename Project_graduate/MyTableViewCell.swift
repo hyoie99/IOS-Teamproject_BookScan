@@ -18,6 +18,8 @@ class MyTableViewCell: UITableViewCell {
         self.sendTitleButton.backgroundColor = UIColor(red: 0.0/255.0, green: 171.0/255.0, blue: 179.0/255.0, alpha: 1.0)
         // 누른 버튼 색 바뀌기
         indicatorActive?()
+        TitleManager.shared.Title = sendTitleButton.titleLabel?.text
+        print(TitleManager.shared.Title)
     }
     override func layoutSubviews() {
         super.layoutSubviews()

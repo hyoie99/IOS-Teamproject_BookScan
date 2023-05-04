@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		780BD049149201A68F3EBD2A /* Pods_Project_graduate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */; };
+		C0EEC8452A0650AA00EB8BB6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C0EEC8442A0650AA00EB8BB6 /* Alamofire */; };
+		C0EEC8472A06521700EB8BB6 /* resultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEC8462A06521700EB8BB6 /* resultViewController.swift */; };
+		C824ADC52A03E72000C4CC49 /* TitleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824ADC42A03E72000C4CC49 /* TitleManager.swift */; };
 		C8334A4C29FA83B700F8C4C1 /* project_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C8334A4B29FA83B700F8C4C1 /* project_logo.png */; };
 		C83891A729FE40EB00F32B1C /* BookTitleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83891A629FE40EB00F32B1C /* BookTitleResponse.swift */; };
 		C8390B272972C07100075F9F /* d.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8390B222972C07100075F9F /* d.jpeg */; };
@@ -25,7 +28,6 @@
 		C839A5872965B35200F206FB /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C839A5862965B35200F206FB /* MainPageViewController.swift */; };
 		C839A5892965B4F500F206FB /* Camera1.png in Resources */ = {isa = PBXBuildFile; fileRef = C839A5882965B4F500F206FB /* Camera1.png */; };
 		C839A58C2965B7E400F206FB /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C839A58B2965B7E400F206FB /* CamViewController.swift */; };
-		C839A5902965B88300F206FB /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C839A58F2965B88300F206FB /* ScanResultViewController.swift */; };
 		C85C37D12A014502002DB4BA /* ImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85C37D02A014502002DB4BA /* ImageDataManager.swift */; };
 		C8C799E929E417250098CB9A /* TitleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C799E829E417250098CB9A /* TitleListViewController.swift */; };
 		C8C799EB29E417590098CB9A /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C799EA29E417590098CB9A /* MyTableViewCell.swift */; };
@@ -35,6 +37,8 @@
 		206C9CCF111560FA9911444E /* Pods-Project_graduate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_graduate.debug.xcconfig"; path = "Target Support Files/Pods-Project_graduate/Pods-Project_graduate.debug.xcconfig"; sourceTree = "<group>"; };
 		2EC5E5AB6E8729662DB5754A /* Pods_Project_graduate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_graduate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFFCE50FA0881A537C978F07 /* Pods-Project_graduate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_graduate.release.xcconfig"; path = "Target Support Files/Pods-Project_graduate/Pods-Project_graduate.release.xcconfig"; sourceTree = "<group>"; };
+		C0EEC8462A06521700EB8BB6 /* resultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultViewController.swift; sourceTree = "<group>"; };
+		C824ADC42A03E72000C4CC49 /* TitleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleManager.swift; sourceTree = "<group>"; };
 		C8334A4B29FA83B700F8C4C1 /* project_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project_logo.png; sourceTree = "<group>"; };
 		C83891A629FE40EB00F32B1C /* BookTitleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTitleResponse.swift; sourceTree = "<group>"; };
 		C8390B222972C07100075F9F /* d.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d.jpeg; sourceTree = "<group>"; };
@@ -53,7 +57,6 @@
 		C839A5862965B35200F206FB /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		C839A5882965B4F500F206FB /* Camera1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera1.png; sourceTree = "<group>"; };
 		C839A58B2965B7E400F206FB /* CamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamViewController.swift; sourceTree = "<group>"; };
-		C839A58F2965B88300F206FB /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		C85C37D02A014502002DB4BA /* ImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataManager.swift; sourceTree = "<group>"; };
 		C8C799E829E417250098CB9A /* TitleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleListViewController.swift; sourceTree = "<group>"; };
 		C8C799EA29E417590098CB9A /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0EEC8452A0650AA00EB8BB6 /* Alamofire in Frameworks */,
 				C839A5832965B19B00F206FB /* CropViewController in Frameworks */,
 				780BD049149201A68F3EBD2A /* Pods_Project_graduate.framework in Frameworks */,
 			);
@@ -132,9 +136,10 @@
 				C85C37D02A014502002DB4BA /* ImageDataManager.swift */,
 				C83891A629FE40EB00F32B1C /* BookTitleResponse.swift */,
 				C839A58B2965B7E400F206FB /* CamViewController.swift */,
-				C839A58F2965B88300F206FB /* ScanResultViewController.swift */,
 				C8C799E829E417250098CB9A /* TitleListViewController.swift */,
+				C824ADC42A03E72000C4CC49 /* TitleManager.swift */,
 				C8C799EA29E417590098CB9A /* MyTableViewCell.swift */,
+				C0EEC8462A06521700EB8BB6 /* resultViewController.swift */,
 				C839A5732965B0E300F206FB /* Main.storyboard */,
 				C839A5762965B0E500F206FB /* Assets.xcassets */,
 				C839A5782965B0E500F206FB /* LaunchScreen.storyboard */,
@@ -171,6 +176,7 @@
 			name = Project_graduate;
 			packageProductDependencies = (
 				C839A5822965B19B00F206FB /* CropViewController */,
+				C0EEC8442A0650AA00EB8BB6 /* Alamofire */,
 			);
 			productName = Project_graduate;
 			productReference = C839A56A2965B0E300F206FB /* Project_graduate.app */;
@@ -202,6 +208,7 @@
 			mainGroup = C839A5612965B0E300F206FB;
 			packageReferences = (
 				C839A5812965B19B00F206FB /* XCRemoteSwiftPackageReference "TOCropViewController" */,
+				C0EEC8432A0650AA00EB8BB6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = C839A56B2965B0E300F206FB /* Products */;
 			projectDirPath = "";
@@ -281,12 +288,13 @@
 			files = (
 				C839A58C2965B7E400F206FB /* CamViewController.swift in Sources */,
 				C85C37D12A014502002DB4BA /* ImageDataManager.swift in Sources */,
+				C824ADC52A03E72000C4CC49 /* TitleManager.swift in Sources */,
 				C8C799EB29E417590098CB9A /* MyTableViewCell.swift in Sources */,
 				C839A5872965B35200F206FB /* MainPageViewController.swift in Sources */,
 				C8C799E929E417250098CB9A /* TitleListViewController.swift in Sources */,
 				C839A56E2965B0E300F206FB /* AppDelegate.swift in Sources */,
-				C839A5902965B88300F206FB /* ScanResultViewController.swift in Sources */,
 				C839A5852965B33500F206FB /* BookCoverCollectionViewCell.swift in Sources */,
+				C0EEC8472A06521700EB8BB6 /* resultViewController.swift in Sources */,
 				C83891A729FE40EB00F32B1C /* BookTitleResponse.swift in Sources */,
 				C839A5702965B0E300F206FB /* SceneDelegate.swift in Sources */,
 			);
@@ -510,6 +518,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C0EEC8432A0650AA00EB8BB6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		C839A5812965B19B00F206FB /* XCRemoteSwiftPackageReference "TOCropViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TimOliver/TOCropViewController.git";
@@ -521,6 +537,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C0EEC8442A0650AA00EB8BB6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0EEC8432A0650AA00EB8BB6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		C839A5822965B19B00F206FB /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C839A5812965B19B00F206FB /* XCRemoteSwiftPackageReference "TOCropViewController" */;
