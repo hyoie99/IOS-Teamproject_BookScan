@@ -105,6 +105,7 @@ class resultViewController: UIViewController {
                         // imageUrl
                         if let imageUrl = parseData["imageUrl"] as? String {
                             BookData.shared.imageUrl = imageUrl
+                            ImageDataManager.shared.saveImageUrl(imageUrl)
                         }
                         // KyoboInfo
                         if let kyoboInfo = parseData["kyoboInfo"] as? [String: Any] {
@@ -129,6 +130,9 @@ class resultViewController: UIViewController {
         })
     }
     
+    @IBAction func onBtnhome(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     @IBAction func kyoboMoreClicked(_ sender: Any) {
         kyoboReview.text = fullReviewText1
         kyobomore.isHidden = true

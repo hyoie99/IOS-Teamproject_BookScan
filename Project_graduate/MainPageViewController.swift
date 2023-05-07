@@ -21,10 +21,6 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //이거 해줘야 label 둥글게 적용 가능
-//        searchList_label.clipsToBounds = true
-//        searchList_label.layer.cornerRadius = 10
-//        searchList_label.layer.borderWidth = 2
         
 //        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
 //        tapGesture.delegate = self
@@ -38,10 +34,15 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        fetchBookTitles { [weak self] imageUrl in
-            self?.imageURLs.append(imageUrl)
-            self?.collectionView.reloadData()
-        }
+//        fetchBookTitles { [weak self] imageUrl in
+//            self?.imageURLs.append(imageUrl)
+//            self?.collectionView.reloadData()
+//        }
+        //이미지 url userDefault로부터 가져옴
+        imageURLs = ImageDataManager.shared.fetchAllSavedImageUrls()
+        //확인용
+        print(imageURLs)
+        
         self.indicator.isHidden = false
         self.indicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
@@ -51,25 +52,28 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @objc func viewTapped(_ sender : UITapGestureRecognizer) {
+        let location = sender.location(in: collectionView)
+        if let indexPath = collectionView.indexPathForItem(at: location) {
+            TitleManager.shared.Title = ImageDataManager.shared.fetchSavedTitle(at: indexPath.row)
+        }
         print("\(sender.view!.tag) 클릭됨")
-        
-        //책 정보 페이지로 넘어가는 함수 만들기,
-//        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
-        
+        print("\(TitleManager.shared.Title!) 책 호출")
+        //결과 페이지로 넘어가는 함수
+        self.navigationController?.pushViewController(resultViewController(), animated: true)
     }
     
-        
+    //url 따오는 함수..
     func fetchBookTitles(completion: @escaping (String) -> Void) {
 //        let url = "http://3.39.106.142:8080/book/info?bookTitle=세이노의 가르침"
-        let url = "http://3.39.106.142:8080/book/info?bookTitle=%EC%84%B8%EC%9D%B4%EB%85%B8%EC%9D%98%20%EA%B0%80%EB%A5%B4%EC%B9%A8"
-        //url??
-
+        let url = "http://3.38.6.240:8080/book/info?bookTitle=%EC%84%B8%EC%9D%B4%EB%85%B8%EC%9D%98%20%EA%B0%80%EB%A5%B4%EC%B9%A8"
+        //url -> fetchSavedImageUrl 이용하기
+        
         AF.request(url).responseDecodable(of: BookTitleResponse.self) { (response) in
             switch response.result {
             case .success(let bookTitleResponse):
                 let imageURL = bookTitleResponse.result.imageUrl
                 completion(imageURL)
-                ImageDataManager.shared.saveImageUrl(imageURL) //이미지 url을 userdefault에 저장
+//                ImageDataManager.shared.saveImageUrl(imageURL) //이미지 url을 userdefault에 저장
                 print("History success")
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
@@ -101,9 +105,16 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
 //        let url : URL = URL(string: "https://")!
 //        cell.BookCoverImage.sd_setImage(with: url)
         //책 url 따와서 해보기
-        let imageUrl = imageURLs[indexPath.item]
-        cell.BookCoverImage.sd_setImage(with: URL(string: imageUrl),completed: nil)
-//
+//        let imageUrl = imageURLs[indexPath.item]
+        var imageUrl: String = ""
+
+        if imageURLs.count > 0 {
+            imageUrl = imageURLs[indexPath.item]
+        } else {
+            // 아무것도 하지 않음
+        }
+
+        cell.BookCoverImage.sd_setImage(with: URL(string: imageUrl), completed: nil)
         cell.BookCoverImage.layer.cornerRadius = 10
         cell.BookCoverImage.layer.cornerCurve = .continuous
         return cell

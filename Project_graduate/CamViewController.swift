@@ -75,7 +75,7 @@ class CamViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     }
     // upload 함수, or af.request(url, method:.post), param : -> image
     func uploadImage(image: UIImage) {
-        let url : String = "http://3.39.106.142:8000/api/"
+        let url : String = "http://3.38.6.240:8000/api/"
         
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(image.jpegData(compressionQuality: 1.0 )!, withName: "image", fileName: "photo.jpeg", mimeType: "image/jpg")
@@ -84,6 +84,8 @@ class CamViewController: UIViewController, UIImagePickerControllerDelegate & UIN
             if response.error != nil {
                 //파일 업로드 실패
                 print(AFError.self)
+                self.navigationController?.popToRootViewController(animated: true)
+                //실패시 메인 화면으로 돌아감
             } else {
                 //파일 업로드 성공
                 print("File Upload success")

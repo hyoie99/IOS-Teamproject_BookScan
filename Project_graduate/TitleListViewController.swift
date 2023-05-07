@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class TitleListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TitleListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, customTableViewCellDelegate {
     let titles = [
         "세이노의 가르침",
         "나는 어떻게 행복할 수 있는가",
@@ -34,6 +34,7 @@ class TitleListViewController: UIViewController, UITableViewDataSource, UITableV
         cell.sendTitleButton.setTitle(self.stringArray[indexPath.row], for: .normal)
         //나중에 서버 연결시 위 코드 titles -> bookTitles 로 고치기
         
+        
         cell.sendTitleButton.layer.cornerRadius = 5
         cell.sendTitleButton.layer.borderWidth = 2
         cell.sendTitleButton.layer.borderColor = UIColor.black.cgColor
@@ -47,6 +48,10 @@ class TitleListViewController: UIViewController, UITableViewDataSource, UITableV
 //            }
 //        }
         return cell
+    }
+    func didTapButtonCell() {
+        let resultVC = resultViewController()
+        self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
     
@@ -88,14 +93,11 @@ class TitleListViewController: UIViewController, UITableViewDataSource, UITableV
         }
         downloadTitle()
         
-//     
     }
     
-    //http://3.39.106.142:8080/api/swagger-ui/index.html
-    //http://3.39.106.142.:8080/title?bookTitle=Clean Code
     //서버로 부터 다운로드.
     func downloadTitle()  {
-        guard let url = URL(string: "http://3.39.106.142:8080/book/title") else {
+        guard let url = URL(string: "http://3.38.6.240:8080/book/title") else {
             return
         }
         let params : [String: Any] = [
@@ -114,6 +116,7 @@ class TitleListViewController: UIViewController, UITableViewDataSource, UITableV
                 } else {
                     print("JSON객체에서 titles 배열을 추출하는 데 실패했습니다.")
                     self.stringArray.append("제목을 찾지 못하였습니다. 다시시도해주세요.")
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
