@@ -91,7 +91,8 @@ class resultViewController: UIViewController {
     
     func getReviews(){
 //        let url = "http://3.39.106.142:8080/book/info"
-        let url = "http://43.201.164.78:8080/book/info"
+//        let url = "http://43.201.164.78:8080/book/info"
+        let url = "http://3.38.6.240:8080/book/info"
         let param = ["bookTitle": searchQuery]
         AF.request(url, method: .get, parameters: param).responseJSON(completionHandler: {
             response in
