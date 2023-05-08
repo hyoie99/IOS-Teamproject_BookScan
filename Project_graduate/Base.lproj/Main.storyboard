@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSs-TR-rlR">
-                                <rect key="frame" x="146" y="653" width="101" height="50"/>
+                                <rect key="frame" x="146" y="619" width="101" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0gG-YK-tqQ"/>
                                 </constraints>
@@ -96,9 +96,10 @@
                         <constraints>
                             <constraint firstItem="mSs-TR-rlR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="4xX-eb-XPe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mSs-TR-rlR" secondAttribute="trailing" constant="146" id="G6X-fT-Ye5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mSs-TR-rlR" secondAttribute="bottom" constant="115" id="J3H-M1-h2n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mSs-TR-rlR" secondAttribute="bottom" constant="100" id="J3H-M1-h2n"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" selectedImage="house.fill" id="mlv-p0-Ouv"/>
                     <navigationItem key="navigationItem" id="Ie5-G5-9hM"/>
                     <connections>
                         <outlet property="collectionView" destination="0LL-rL-fJP" id="8Tv-3a-yga"/>
@@ -107,7 +108,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765.64885496183206" y="17.605633802816904"/>
+            <point key="canvasLocation" x="1692.3664122137404" y="17.605633802816904"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="A9n-X1-SnD">
+            <objects>
+                <viewController id="vQA-GA-85G" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ExF-bk-2wf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Cgz-tO-HqJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="bookmark.fill" catalog="system" selectedImage="bookmark.fill" id="IOZ-Zm-54z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3uy-Jy-00p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1692" y="774"/>
         </scene>
         <!--Cam View Controller-->
         <scene sceneID="0I4-nQ-cdo">
@@ -132,12 +149,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdi-jH-14L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1575" y="18"/>
+            <point key="canvasLocation" x="2501.5267175572517" y="17.605633802816904"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="A6Q-te-ZdG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qZX-Zo-WKA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="house" catalog="system" id="w6P-dz-s8I"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BIo-7N-1iN">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -145,7 +163,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JkN-vM-hTn"/>
+                        <segue destination="DCu-2L-AxB" kind="relationship" relationship="rootViewController" id="JkN-vM-hTn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anP-11-cfk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,12 +274,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fk7-2D-HMs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2359.5419847328244" y="17.605633802816904"/>
+            <point key="canvasLocation" x="3286.2595419847326" y="17.605633802816904"/>
         </scene>
-        <!--검색 결과-->
+        <!--resultViewController-->
         <scene sceneID="jhJ-ZF-uwS">
             <objects>
-                <viewController id="3Ti-99-trU" customClass="resultViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="resultViewController" id="3Ti-99-trU" customClass="resultViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EOf-02-p02">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -456,15 +474,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgn-HP-ATv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3264.8854961832058" y="17.605633802816904"/>
+            <point key="canvasLocation" x="4191.6030534351139" y="17.605633802816904"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bkU-SG-H8d">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DCu-2L-AxB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ZOI-X9-ZcT"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tCi-OM-8df">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="rgH-m9-7DM"/>
+                        <segue destination="vQA-GA-85G" kind="relationship" relationship="viewControllers" id="vBb-Gt-vi8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfT-8k-Rjc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="778" y="18"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera1.png" width="48" height="48"/>
         <image name="arrowshape.left" catalog="system" width="128" height="104"/>
         <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="chevron.left.circle" catalog="system" width="128" height="123"/>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="link" catalog="system" width="128" height="124"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

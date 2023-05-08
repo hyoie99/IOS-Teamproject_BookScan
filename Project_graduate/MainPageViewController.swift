@@ -59,7 +59,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("\(sender.view!.tag) 클릭됨")
         print("\(TitleManager.shared.Title!) 책 호출")
         //결과 페이지로 넘어가는 함수
-        self.navigationController?.pushViewController(resultViewController(), animated: true)
+        self.navigationController?.pushViewController(resultVC(), animated: true)
     }
     
     //url 따오는 함수..
