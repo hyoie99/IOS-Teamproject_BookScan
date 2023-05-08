@@ -5,12 +5,15 @@
 //  Created by 이혜인 on 2023/05/06.
 //
 
+import Foundation
 import UIKit
 import Alamofire
+import SafariServices
 
-class resultViewController: UIViewController {
+class resultVC: UIViewController {
     
     @IBOutlet weak var searchIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var bookMarkBtn: UIBarButtonItem!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleView: UILabel!
@@ -25,13 +28,14 @@ class resultViewController: UIViewController {
     @IBOutlet weak var yes24more: UIButton!
     var fullReviewText2: String = ""
     
-//    var searchQuery: String?
-    var searchQuery = TitleManager.shared.Title
+    var searchQuery: String?
+    var isMarked: Bool = false
+    let randomKey = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("resultVC called")
-        print("userdefault data : \(String(describing: ImageDataManager.fetchSavedTitle))")
+        
         if let searchQuery = searchQuery {
                     print("Search query: \(searchQuery)")
                 } else {
@@ -41,7 +45,7 @@ class resultViewController: UIViewController {
         indicatorfunc()
         getReviews()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10){
             // 책 이미지 불러오기
             if let urlString = BookData.shared.imageUrl, let url = URL(string: urlString) {
                 URLSession.shared.dataTask(with: url) { data, response, error in
@@ -83,15 +87,23 @@ class resultViewController: UIViewController {
     
     func indicatorfunc(){
         searchIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10){
             self.searchIndicator.isHidden = true
             self.searchIndicator.stopAnimating()
         }
     }
     
+    func changeBookmark(){
+        if isMarked == true {
+            let btnImage = UIImage(systemName: "bookmark.fill")
+            bookMarkBtn.image = btnImage
+        } else {
+            let btnImage = UIImage(systemName: "bookmark")
+            bookMarkBtn.image = btnImage
+        }
+    }
+    
     func getReviews(){
-//        let url = "http://3.39.106.142:8080/book/info"
-//        let url = "http://43.201.164.78:8080/book/info"
         let url = "http://3.38.6.240:8080/book/info"
         let param = ["bookTitle": searchQuery]
         AF.request(url, method: .get, parameters: param).responseJSON(completionHandler: {
@@ -105,7 +117,6 @@ class resultViewController: UIViewController {
                         // imageUrl
                         if let imageUrl = parseData["imageUrl"] as? String {
                             BookData.shared.imageUrl = imageUrl
-                            ImageDataManager.shared.saveImageUrl(imageUrl)
                         }
                         // KyoboInfo
                         if let kyoboInfo = parseData["kyoboInfo"] as? [String: Any] {
@@ -130,9 +141,7 @@ class resultViewController: UIViewController {
         })
     }
     
-    @IBAction func onBtnhome(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+    // 리뷰 더보기 버튼
     @IBAction func kyoboMoreClicked(_ sender: Any) {
         kyoboReview.text = fullReviewText1
         kyobomore.isHidden = true
@@ -141,6 +150,38 @@ class resultViewController: UIViewController {
         yes24Review.text = fullReviewText2
         yes24more.isHidden = true
     }
+    
+    // 책 사이트 이동 버튼
+    @IBAction func kyoboUrlClicked(_ sender: UIButton) {
+        let urlString = BookData.shared.kyoboInfo?["bookUrl"] as? String ?? ""
+        let url = NSURL(string: urlString)
+        let urlSafariView: SFSafariViewController = SFSafariViewController(url: url! as URL)
+        self.present(urlSafariView, animated: true, completion: nil)
+    }
+    @IBAction func yesUrlClicked(_ sender: UIButton) {
+        let urlString = BookData.shared.yes24Info?["bookUrl"] as? String ?? ""
+        let url = NSURL(string: urlString)
+        let urlSafariView: SFSafariViewController = SFSafariViewController(url: url! as URL)
+        self.present(urlSafariView, animated: true, completion: nil)
+    }
+    
+    // 북마크 아이콘 클릭
+    @IBAction func bookmarkClicked(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        if self.isMarked == false {
+            let bookmarkInfo = ["title": BookData.shared.kyoboInfo?["title"]!, "author": BookData.shared.kyoboInfo?["author"]!, "image": BookData.shared.imageUrl!, "key": randomKey] as [String : Any]
+            defaults.set(bookmarkInfo, forKey: randomKey)
+            self.isMarked = true
+            changeBookmark()
+            print(defaults.object(forKey: randomKey) as? [String: Any])
+        } else {
+            defaults.removeObject(forKey: randomKey)
+            print(defaults.object(forKey: randomKey) as? [String: Any])
+            self.isMarked = false
+            changeBookmark()
+        }
+    }
+        
 }
 
 class BookData {
