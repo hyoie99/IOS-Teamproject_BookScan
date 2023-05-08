@@ -31,7 +31,7 @@ class resultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("resultVC called")
-        
+        print("userdefault data : \(String(describing: ImageDataManager.fetchSavedTitle))")
         if let searchQuery = searchQuery {
                     print("Search query: \(searchQuery)")
                 } else {
