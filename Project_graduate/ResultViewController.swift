@@ -10,14 +10,14 @@ import UIKit
 import Alamofire
 import SafariServices
 
-class resultVC: UIViewController {
+class ResultViewController: UIViewController {
     
     @IBOutlet weak var searchIndicator: UIActivityIndicatorView!
     @IBOutlet weak var bookMarkBtn: UIBarButtonItem!
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleView: UILabel!
-    @IBOutlet weak var authorView: UILabel!
+    @IBOutlet weak var titleView: UITextView!
+    @IBOutlet weak var authorView: UITextView!
     @IBOutlet weak var priceView: UILabel!
     
     @IBOutlet weak var kyoboReview: UITextView!
@@ -172,16 +172,16 @@ class resultVC: UIViewController {
             let bookmarkInfo = ["title": BookData.shared.kyoboInfo?["title"]!, "author": BookData.shared.kyoboInfo?["author"]!, "image": BookData.shared.imageUrl!, "key": randomKey] as [String : Any]
             defaults.set(bookmarkInfo, forKey: randomKey)
             self.isMarked = true
+            BookMarkData.shared.addBookmark(withKey: randomKey)
             changeBookmark()
             print(defaults.object(forKey: randomKey) as? [String: Any])
         } else {
             defaults.removeObject(forKey: randomKey)
-            print(defaults.object(forKey: randomKey) as? [String: Any])
             self.isMarked = false
+            BookMarkData.shared.removeBookmark(withKey: randomKey)
             changeBookmark()
         }
     }
-        
 }
 
 class BookData {
@@ -190,4 +190,22 @@ class BookData {
     var imageUrl: String?
     var kyoboInfo: [String: Any]?
     var yes24Info: [String: Any]?
+}
+
+class BookMarkData {
+    static let shared = BookMarkData()
+    
+    var bookmarkArray: [String] = []
+    
+    func addBookmark(withKey key: String) {
+        // 북마크 배열에 키를 추가
+        bookmarkArray.append(key)
+    }
+    
+    func removeBookmark(withKey key: String) {
+        // 북마크 배열에서 키를 삭제
+        if let index = bookmarkArray.firstIndex(of: key) {
+            bookmarkArray.remove(at: index)
+        }
+    }
 }
