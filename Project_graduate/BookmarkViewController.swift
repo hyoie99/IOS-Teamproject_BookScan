@@ -11,7 +11,8 @@ class bookmarkViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    let bookmarkShared = BookMarkData.shared
+//    let bookmarkShared = BookMarkData.shared
+    let bookmarkArray = UserDefaults.standard.array(forKey: "bookmarkArray") as? [String] ?? []
     var books: [Book] = []
     
     
@@ -27,7 +28,7 @@ class bookmarkViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         print("bookmarkVC called")
-        for key in bookmarkShared.bookmarkArray {
+        for key in bookmarkArray {
             if let curBook = UserDefaults.standard.object(forKey: key) as? [String: Any] {
                 print(curBook)
                 if let urlString = curBook["image"] as? String, let titleString = curBook["title"] as? String, let authorString = curBook["author"] as? String {
@@ -48,7 +49,7 @@ class bookmarkViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         books.removeAll() // 기존에 추가된 책 데이터를 모두 제거
-        for key in bookmarkShared.bookmarkArray {
+        for key in bookmarkArray {
             if let curBook = UserDefaults.standard.object(forKey: key) as? [String: Any] {
                 if let urlString = curBook["image"] as? String, let titleString = curBook["title"] as? String, let authorString = curBook["author"] as? String {
                     let book = Book(imageUrl: urlString, title: titleString, author: authorString)

@@ -176,14 +176,28 @@ class ResultViewController: UIViewController {
             let bookmarkInfo = ["title": BookData.shared.kyoboInfo?["title"]!, "author": BookData.shared.kyoboInfo?["author"]!, "image": BookData.shared.imageUrl!, "key": randomKey] as [String : Any]
             defaults.set(bookmarkInfo, forKey: randomKey)
             self.isMarked = true
-            BookMarkData.shared.addBookmark(withKey: randomKey)
+            
+            if UserDefaults.standard.object(forKey: "bookmarkArray") != nil {
+                // "bookmarkArray"에 저장된 데이터가 존재함
+                var curArray = UserDefaults.standard.array(forKey: "bookmarkArray") as? [String] ?? []
+                curArray.append(randomKey)
+                UserDefaults.standard.set(curArray, forKey: "bookmarkArray")
+            } else {
+                // "bookmarkArray"에 저장된 데이터가 없음
+                let newArray = [randomKey]
+                UserDefaults.standard.set(newArray, forKey: "bookmarkArray")
+            }
+
             changeBookmark()
             print("resultVC BookmarkClick")
-            print(defaults.object(forKey: randomKey) as? [String: Any])
         } else {
             defaults.removeObject(forKey: randomKey)
             self.isMarked = false
-            BookMarkData.shared.removeBookmark(withKey: randomKey)
+            
+            var curArray = UserDefaults.standard.array(forKey: "bookmarkArray") as? [String] ?? []
+            curArray = curArray.filter { $0 != randomKey }
+            UserDefaults.standard.set(curArray, forKey: "bookmarkArray")
+            
             changeBookmark()
         }
     }

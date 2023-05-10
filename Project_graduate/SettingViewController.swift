@@ -25,11 +25,13 @@ class SettingViewController: UIViewController {
     // 북마크 전체 삭제 버튼
     @IBAction func initBookmark(_ sender: Any) {
         print("click initBookmark")
-        let bookmarkArray = BookMarkData.shared.bookmarkArray
+//        let bookmarkArray = BookMarkData.shared.bookmarkArray
+        let bookmarkArray = UserDefaults.standard.array(forKey: "bookmarkArray") as? [String] ?? []
         
         for key in bookmarkArray {
-            BookMarkData.shared.removeBookmark(withKey: key)
+//            BookMarkData.shared.removeBookmark(withKey: key)
             UserDefaults.standard.removeObject(forKey: key)
         }
+        UserDefaults.standard.removeObject(forKey: "bookmarkArray")
     }
 }
