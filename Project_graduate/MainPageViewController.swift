@@ -18,6 +18,7 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
     let images = ["a.jpeg","b.jpeg","c.jpeg","d.jpeg","e.jpeg"]
     var imageURLs : [String] = []
 
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,8 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTapped)))
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
 //        fetchBookTitles { [weak self] imageUrl in
 //            self?.imageURLs.append(imageUrl)
 //            self?.collectionView.reloadData()
@@ -51,6 +53,21 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    @objc private func refreshData(_ sender : UIRefreshControl) {
+        //저장된 이미지 불러옴
+        let defaults = UserDefaults.standard
+        imageURLs = defaults.array(forKey: "savedImageUrl") as? [String] ?? [String]()
+        print("refresh 이후 image URL")
+        print(imageURLs)
+            // 메인 스레드에서 UI를 업데이트
+        DispatchQueue.main.async {
+            // 이미지가 업데이트 된 후에 collectionView를 새로고침
+            self.collectionView.reloadData()
+            // 새로 고침 인디케이터를 종료
+            sender.endRefreshing()
+        }
+    }
+    
     @objc func viewTapped(_ sender : UITapGestureRecognizer) {
         let location = sender.location(in: collectionView)
         if let indexPath = collectionView.indexPathForItem(at: location) {
@@ -59,7 +76,13 @@ class MainPageViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("\(sender.view!.tag) 클릭됨")
         print("\(TitleManager.shared.Title!) 책 호출")
         //결과 페이지로 넘어가는 함수
-        self.navigationController?.pushViewController(resultVC(), animated: true)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let resultVC = storyboard.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController {
+            self.navigationController?.pushViewController(resultVC, animated: true)
+            
+        }
+     
     }
     
     //url 따오는 함수..

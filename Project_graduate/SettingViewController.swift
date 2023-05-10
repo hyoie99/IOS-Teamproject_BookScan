@@ -16,8 +16,11 @@ class SettingViewController: UIViewController {
     }
     
     // 히스토리 전체 삭제 버튼
-//    @IBAction func initHistory(_ sender: Any) {
-//    }
+    @IBAction func initHistory(_ sender: Any) {
+        ImageDataManager.shared.removeAllImageUrls()
+        ImageDataManager.shared.removeAllTitles()
+    }
+    
     
     // 북마크 전체 삭제 버튼
     @IBAction func initBookmark(_ sender: Any) {

@@ -11,23 +11,34 @@ class bookmarkViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    let bookmarkArray = BookMarkData.shared.bookmarkArray
+    let bookmarkShared = BookMarkData.shared
     var books: [Book] = []
+    
+    
+    @IBAction func tapSetting(_ sender: UIButton) {
+        print("pushed")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let settingVC = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController {
+            self.navigationController?.pushViewController(settingVC, animated: true)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("bookmarkVC called")
-        
-        for key in bookmarkArray {
+        for key in bookmarkShared.bookmarkArray {
             if let curBook = UserDefaults.standard.object(forKey: key) as? [String: Any] {
+                print(curBook)
                 if let urlString = curBook["image"] as? String, let titleString = curBook["title"] as? String, let authorString = curBook["author"] as? String {
+                    print(urlString, titleString, authorString)
                     let book = Book(imageUrl: urlString, title: titleString, author: authorString)
                     books.append(book)
                 }
             }
         }
         
-        print(books.count)
+        print("bookmarkview: \(books.count)")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,7 +48,7 @@ class bookmarkViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         books.removeAll() // 기존에 추가된 책 데이터를 모두 제거
-        for key in bookmarkArray {
+        for key in bookmarkShared.bookmarkArray {
             if let curBook = UserDefaults.standard.object(forKey: key) as? [String: Any] {
                 if let urlString = curBook["image"] as? String, let titleString = curBook["title"] as? String, let authorString = curBook["author"] as? String {
                     let book = Book(imageUrl: urlString, title: titleString, author: authorString)
@@ -56,7 +67,7 @@ class bookmarkViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookTableViewCell
         let book = books[indexPath.row]
 
-        if let urlString = book.imageUrl as? String, let url = URL(string: urlString) {
+        if let url = URL(string: book.imageUrl) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 DispatchQueue.main.async {
@@ -73,12 +84,6 @@ class bookmarkViewController: UIViewController, UITableViewDelegate, UITableView
     }
 }
 
-// Book 모델
-struct Book {
-    let imageUrl: String
-    let title: String
-    let author: String
-}
 
 // BookTableViewCell
 class BookTableViewCell: UITableViewCell {

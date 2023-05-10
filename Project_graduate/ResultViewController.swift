@@ -28,7 +28,8 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var yes24more: UIButton!
     var fullReviewText2: String = ""
     
-    var searchQuery: String?
+//    var searchQuery: String?
+    var searchQuery = TitleManager.shared.Title
     var isMarked: Bool = false
     let randomKey = UUID().uuidString
     
@@ -52,7 +53,9 @@ class ResultViewController: UIViewController {
                     guard let data = data, error == nil else { return }
                     DispatchQueue.main.async {
                         let image = UIImage(data: data)
-                        self.imageView.image = image
+                        self.imageView?.image = image
+                        ImageDataManager.shared.saveImageUrl(urlString)
+                        print("고른 책의 imageUrl:\(urlString)")
                     }
                 }.resume()
             }
@@ -63,11 +66,11 @@ class ResultViewController: UIViewController {
                 self.fullReviewText1 = reviewText
                 let index = reviewText.index(reviewText.startIndex, offsetBy: 200)
                 let truncatedText = String(reviewText[..<index]) + "..."
-                self.kyoboReview.text = truncatedText
-                self.kyobomore.isHidden = false
+                self.kyoboReview?.text = truncatedText
+                self.kyobomore?.isHidden = false
             } else {
-                self.kyoboReview.text = reviewText
-                self.kyobomore.isHidden = true
+                self.kyoboReview?.text = reviewText
+                self.kyobomore?.isHidden = true
             }
             
             // yes24 리뷰 불러오기
@@ -76,30 +79,31 @@ class ResultViewController: UIViewController {
                 self.fullReviewText2 = reviewText2
                 let index = reviewText2.index(reviewText2.startIndex, offsetBy: 200)
                 let truncatedText = String(reviewText2[..<index]) + "..."
-                self.yes24Review.text = truncatedText
-                self.yes24more.isHidden = false
+                self.yes24Review?.text = truncatedText
+                self.yes24more?.isHidden = false
             } else {
-                self.yes24Review.text = reviewText2
-                self.yes24more.isHidden = true
+                self.yes24Review?.text = reviewText2
+                self.yes24more?.isHidden = true
             }
         }
     }
     
     func indicatorfunc(){
-        searchIndicator.startAnimating()
+        
+        self.searchIndicator?.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 10){
-            self.searchIndicator.isHidden = true
-            self.searchIndicator.stopAnimating()
+            self.searchIndicator?.isHidden = true
+            self.searchIndicator?.stopAnimating()
         }
     }
     
     func changeBookmark(){
         if isMarked == true {
             let btnImage = UIImage(systemName: "bookmark.fill")
-            bookMarkBtn.image = btnImage
+            bookMarkBtn?.image = btnImage
         } else {
             let btnImage = UIImage(systemName: "bookmark")
-            bookMarkBtn.image = btnImage
+            bookMarkBtn?.image = btnImage
         }
     }
     
@@ -122,9 +126,9 @@ class ResultViewController: UIViewController {
                         if let kyoboInfo = parseData["kyoboInfo"] as? [String: Any] {
                             if let review = kyoboInfo["review"], let bookUrl = kyoboInfo["bookUrl"], let price = kyoboInfo["rowPrice"], let title = kyoboInfo["title"], let author = kyoboInfo["author"] {
                                 BookData.shared.kyoboInfo = ["review": review, "bookUrl": bookUrl, "price": price, "title": title, "author": author]
-                                self.titleView.text = title as? String
-                                self.authorView.text = author as? String
-                                self.priceView.text = price as? String
+                                self.titleView?.text = title as? String
+                                self.authorView?.text = author as? String
+                                self.priceView?.text = price as? String
                             }
                         }
                         // yes24Info
@@ -174,6 +178,7 @@ class ResultViewController: UIViewController {
             self.isMarked = true
             BookMarkData.shared.addBookmark(withKey: randomKey)
             changeBookmark()
+            print("resultVC BookmarkClick")
             print(defaults.object(forKey: randomKey) as? [String: Any])
         } else {
             defaults.removeObject(forKey: randomKey)
@@ -182,30 +187,8 @@ class ResultViewController: UIViewController {
             changeBookmark()
         }
     }
-}
-
-class BookData {
-    static let shared = BookData()
-    
-    var imageUrl: String?
-    var kyoboInfo: [String: Any]?
-    var yes24Info: [String: Any]?
-}
-
-class BookMarkData {
-    static let shared = BookMarkData()
-    
-    var bookmarkArray: [String] = []
-    
-    func addBookmark(withKey key: String) {
-        // 북마크 배열에 키를 추가
-        bookmarkArray.append(key)
-    }
-    
-    func removeBookmark(withKey key: String) {
-        // 북마크 배열에서 키를 삭제
-        if let index = bookmarkArray.firstIndex(of: key) {
-            bookmarkArray.remove(at: index)
-        }
+    @IBAction func onBtnHome(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
+

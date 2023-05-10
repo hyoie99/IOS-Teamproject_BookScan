@@ -123,7 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="OpB-xs-y0r" customClass="BookTableViewCell" customModule="Project_graduate" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" rowHeight="150" id="OpB-xs-y0r" customClass="BookTableViewCell" customModule="Project_graduate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OpB-xs-y0r" id="hSi-A1-D0j">
@@ -179,10 +179,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="설정" id="Z0U-PW-MVv">
-                                        <barButtonItem key="rightBarButtonItem" image="gearshape.fill" catalog="system" id="aQV-eV-4X4">
-                                            <connections>
-                                                <segue destination="5As-yV-T2g" kind="show" id="gvd-At-aja"/>
-                                            </connections>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="7S2-bj-Tz1">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="yzX-t1-N9Q">
+                                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tapSetting:" destination="vQA-GA-85G" eventType="touchUpInside" id="i4y-gL-J2V"/>
+                                                </connections>
+                                            </button>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -198,6 +204,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="aEV-wn-7Ea" id="NrP-1D-odi"/>
+                        <segue destination="5As-yV-T2g" kind="push" id="pv9-fd-m6y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3uy-Jy-00p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -207,7 +214,7 @@
         <!--Setting View Controller-->
         <scene sceneID="FWN-JU-0ZW">
             <objects>
-                <viewController id="5As-yV-T2g" customClass="SettingViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" id="5As-yV-T2g" customClass="SettingViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9bx-m8-cyT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,6 +226,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="히스토리 전체 삭제">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="initHistory:" destination="5As-yV-T2g" eventType="touchUpInside" id="QiM-Um-wxn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2N-aJ-5eT">
                                 <rect key="frame" x="10" y="164.66666666666666" width="373" height="40.333333333333343"/>
@@ -399,10 +409,10 @@
             </objects>
             <point key="canvasLocation" x="3286.2595419847326" y="17.605633802816904"/>
         </scene>
-        <!--resultViewController-->
+        <!--검색 결과-->
         <scene sceneID="jhJ-ZF-uwS">
             <objects>
-                <viewController title="resultViewController" id="3Ti-99-trU" customClass="ResultViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="3Ti-99-trU" customClass="ResultViewController" customModule="Project_graduate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EOf-02-p02">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -578,7 +588,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrowshape.left" catalog="system"/>
                                 <connections>
-                                    <action selector="onBtnhome:" destination="3Ti-99-trU" eventType="touchUpInside" id="NpO-PE-i3i"/>
+                                    <action selector="onBtnHome:" destination="3Ti-99-trU" eventType="touchUpInside" id="PWq-mR-AnK"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -590,6 +600,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="authorView" destination="06N-dU-CrA" id="qDc-4M-fYw"/>
+                        <outlet property="bookMarkBtn" destination="9Yf-Yu-owv" id="awh-fb-gxI"/>
                         <outlet property="imageView" destination="IXw-2r-9sx" id="Tap-9B-V3L"/>
                         <outlet property="kyoboReview" destination="KGl-9l-xd4" id="cn7-Zh-H9N"/>
                         <outlet property="kyobomore" destination="Tf8-Pb-0b6" id="m9x-Ub-SCq"/>

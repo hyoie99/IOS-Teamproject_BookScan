@@ -50,7 +50,7 @@ class TitleListViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     func didTapButtonCell() {
-        let resultVC = resultVC()
+        let resultVC = ResultViewController()
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
